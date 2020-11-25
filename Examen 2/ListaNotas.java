@@ -42,7 +42,7 @@ public class ListaNotas
         }
         
         tamano++;
-        System.out.println("Desea agregar mas notas para? (1.Si 0.No)");
+        System.out.println("Desea agregar mas notas? (1.Si 0.No)");
         if(scan.nextInt()==1)
         {
         	System.out.println("Ingrese la nota del estudiante.");
@@ -53,9 +53,9 @@ public class ListaNotas
     public Integer buscarPosicion(int posicionFinal)
     {
     	Notas auxiliar= inicio;
-    	if(posicionFinal>1&&auxiliar.getSiguiente()!=null)
+    	if(posicionFinal>0&&auxiliar.getSiguiente()!=null)
     	{
-    		for(int pos=0;pos<posicionFinal;)
+    		for(int pos=0;pos<posicionFinal;pos++)
     		{
     			auxiliar=auxiliar.getSiguiente();
     		}
@@ -70,11 +70,11 @@ public class ListaNotas
             
             while(auxiliar.getSiguiente() != null)
             {
-                System.out.println(" Notas: " + auxiliar.getNotas());
+                System.out.println(auxiliar.getNotas());
                 auxiliar = auxiliar.getSiguiente();;
             }
             
-            System.out.println(" Notas: " + auxiliar.getNotas());
+            System.out.println(auxiliar.getNotas());
         }
     }
 }

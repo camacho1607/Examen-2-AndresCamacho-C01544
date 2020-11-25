@@ -17,7 +17,7 @@ public class Estudiante
 	}
 	public void promedio()
 	{
-		for(int posicion=0;posicion<notas.getTamano()+1;posicion++)
+		for(int posicion=0;posicion<notas.getTamano();posicion++)
 		{
 			promedio+=notas.buscarPosicion(posicion);
 		}

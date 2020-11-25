@@ -5,9 +5,10 @@ public class Main {
 	{
 		Grupo grupo= new Grupo();
 		grupo.agregar("Juan", "1", 95);
+		grupo.agregar("Aaron", "2", 45);
+		grupo.agregar("Braulio", "3", 90);
 		grupo.imprimirLista();
 		
-
 	}
 
 }
