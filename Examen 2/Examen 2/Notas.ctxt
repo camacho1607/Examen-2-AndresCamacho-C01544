@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Notas
+comment1.params=
+comment1.target=Notas()
+comment2.params=
+comment2.target=int\ getNotas()
+comment3.params=notas
+comment3.target=void\ setNotas(int)
+comment4.params=
+comment4.target=Notas\ getSiguiente()
+comment5.params=siguiente
+comment5.target=void\ setSiguiente(Notas)
+numComments=6

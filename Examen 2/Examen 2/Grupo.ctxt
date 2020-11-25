@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Grupo
+comment1.params=
+comment1.target=Grupo()
+comment2.params=
+comment2.target=boolean\ esVacia()
+comment3.params=
+comment3.target=int\ getTamano()
+comment4.params=nombre\ carne\ nota
+comment4.target=void\ agregar(java.lang.String,\ java.lang.String,\ int)
+numComments=5
