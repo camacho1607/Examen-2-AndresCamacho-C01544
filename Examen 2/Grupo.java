@@ -35,50 +35,47 @@ public class Grupo
         {
             Estudiante auxiliar = inicio;
             Estudiante auxiliar2 = auxiliar.getSiguiente();
-            
-            while(auxiliar.getSiguiente() != null&&auxiliar2.getSiguiente() != null)
+            if(auxiliar2==null&&tamano==1)
             {
-                if(auxiliar.getNombre().charAt(0)<=nuevoEstudiante.getNombre().charAt(0)&&auxiliar2.getNombre().charAt(0)>=nuevoEstudiante.getNombre().charAt(0))
-                {
-                    nuevoEstudiante.setSiguiente(auxiliar2);
-                    auxiliar.setSiguiente(nuevoEstudiante);
-                }
-                else
-                {
-                    auxiliar = auxiliar2;
-                    auxiliar2=auxiliar2.getSiguiente();
-                }
-                        
+            	if(auxiliar.getNombre().charAt(0)>nuevoEstudiante.getNombre().charAt(0))
+            	{
+            		auxiliar2=auxiliar;
+            		nuevoEstudiante.setSiguiente(auxiliar2);
+            		inicio=nuevoEstudiante;
+            	}
+            	else
+            	{
+            		auxiliar2=nuevoEstudiante;
+            		auxiliar.setSiguiente(auxiliar2);
+            	}
             }
-            
-            if(auxiliar.getSiguiente() == null||auxiliar2.getSiguiente() == null)
+            else
             {
-                    if(tamano==1)
-                    {
-                        if(auxiliar.getNombre().charAt(0)>=nuevoEstudiante.getNombre().charAt(0))
-                        {
-                            auxiliar2=auxiliar;
-                            auxiliar=nuevoEstudiante;
-                            auxiliar.setSiguiente(auxiliar2);
-                        }
-                        else
-                        {
-                            auxiliar2=nuevoEstudiante;
-                        }
-                    }
-                    else
-                    {
-                        if(auxiliar.getSiguiente() == null)
-                        {
-                            auxiliar.setSiguiente(nuevoEstudiante);
-                        }
-                        else if(auxiliar2.getSiguiente() == null)
-                        {
-                            auxiliar2.setSiguiente(nuevoEstudiante);
-                        }  
-                    }
-                    
-                }
+            	while(auxiliar.getSiguiente()!=null)
+            	{
+            		if(auxiliar.getNombre().charAt(0)<=nuevoEstudiante.getNombre().charAt(0)&&auxiliar2.getNombre().charAt(0)>=nuevoEstudiante.getNombre().charAt(0))
+            		{
+            			nuevoEstudiante.setSiguiente(auxiliar2);
+            			auxiliar2=nuevoEstudiante;
+            			auxiliar.setSiguiente(auxiliar2);
+            		}
+            		else
+            		{
+            			if(auxiliar2.getSiguiente()==null)
+            			{
+            				auxiliar.setSiguiente(nuevoEstudiante);
+            			}
+            			else
+            			{
+            				auxiliar=auxiliar.getSiguiente();
+            			}
+            		}
+            	
+            	
+            }
+        }
+            
+            
         }
         tamano++;
     }
@@ -87,16 +84,14 @@ public class Grupo
         if(!esVacia())
         {
             Estudiante auxiliar = inicio;
-            int posicion = 0;
             
             while(auxiliar.getSiguiente() != null)
             {
-                System.out.println("Posicion: " + posicion + " Nombre: " + auxiliar.getNombre() + " Promedio: "+ auxiliar.getPromedio() );
+                System.out.println(auxiliar.toString());
                 auxiliar = auxiliar.getSiguiente();
-                posicion++;
             }
             
-            System.out.println("Posicion: " + posicion + " Nombre: " + auxiliar.getNombre() + " Promedio: "+ auxiliar.getPromedio());
+            System.out.println(auxiliar.toString());
         }
     }
 }
