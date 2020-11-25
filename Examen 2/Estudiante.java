@@ -1,24 +1,23 @@
 
 public class Estudiante 
 {
-	String nombre;
-	String carne;
-	ListaNotas notas;
-	int promedio;
-	String estudianteString;
-	Estudiante siguiente;
+	private String nombre;
+	private String carne;
+	private ListaNotas notas;
+	private int promedio;
+	private String estudianteString;
+	private Estudiante siguiente;
 	Estudiante()
 	{
 		nombre="";
 		carne="";
 		notas=new ListaNotas();
 		siguiente=null;
-		promedio=0;
 		
 	}
 	public void promedio()
 	{
-		for(int posicion=0;posicion<notas.getTamano();posicion++)
+		for(int posicion=0;posicion<notas.getTamano()+1;posicion++)
 		{
 			promedio+=notas.buscarPosicion(posicion);
 		}
@@ -28,5 +27,35 @@ public class Estudiante
 	{
 		estudianteString= nombre+'|'+carne+'|'+promedio;
 		return estudianteString;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getCarne() {
+		return carne;
+	}
+	public void setCarne(String carne) {
+		this.carne = carne;
+	}
+	public int getPromedio() {
+		return promedio;
+	}
+	public void setPromedio(int promedio) {
+		this.promedio = promedio;
+	}
+	public Estudiante getSiguiente() {
+		return siguiente;
+	}
+	public void setSiguiente(Estudiante siguiente) {
+		this.siguiente = siguiente;
+	}
+	public ListaNotas getNotas() {
+		return notas;
+	}
+	public void setNotas(ListaNotas notas) {
+		this.notas = notas;
 	}
 }

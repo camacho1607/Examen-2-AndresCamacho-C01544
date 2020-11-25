@@ -10,4 +10,6 @@ comment4.params=nota
 comment4.target=void\ agregar(int)
 comment5.params=posicionFinal
 comment5.target=java.lang.Integer\ buscarPosicion(int)
-numComments=6
+comment6.params=
+comment6.target=void\ imprimirLista()
+numComments=7
