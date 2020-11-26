@@ -3,6 +3,7 @@ public class Grupo
     Estudiante inicio;
     Estudiante raiz;
     int tamano;
+    String recorrido="";
     Grupo()
     {
         inicio = null;
@@ -106,6 +107,19 @@ public class Grupo
             System.out.println(auxiliar.toString());
         }
     }
+    public void armarArbol()
+    {
+    	Estudiante auxiliar=inicio;
+    	if(!esVacia())
+    	{
+    		while(auxiliar.getSiguiente() != null)
+    		{
+    			agregarHijo(auxiliar);
+    			auxiliar=auxiliar.getSiguiente();
+    		}
+    		agregarHijo(auxiliar);
+    	}
+    }
     private Estudiante agregarArbol(Estudiante actual, Estudiante nuevo)
     {
         if(actual == null)
@@ -131,7 +145,27 @@ public class Grupo
     {
         raiz = agregarArbol(raiz, nuevo);
     }
-    
+    public void imprimirMenores(float promedio)
+    {
+    	System.out.println(imprimirMenoresRecursivo(raiz,promedio));
+    }
+    public String imprimirMenoresRecursivo(Estudiante actual, float promedio)
+    {
+    	if(actual!=null)
+    		{
+    			if(actual.getPromedio()<promedio)
+		    	{
+		    		recorrido+=actual.toString()+"/n";
+		    		imprimirMenoresRecursivo(actual.getHijoIzquierdo(),promedio);
+		    		imprimirMenoresRecursivo(actual.getHijoDerecho(),promedio);
+		    	}
+    			else if(actual.getPromedio()>=promedio)
+    			{
+    				imprimirMenoresRecursivo(actual.getHijoIzquierdo(),promedio);
+    			}
+    		}
+    	return recorrido;
+    }
     public Estudiante getRaiz()
     {
         return raiz;
