@@ -53,21 +53,31 @@ public class Grupo
             {
             	while(auxiliar.getSiguiente()!=null)
             	{
-            		if(auxiliar.getNombre().charAt(0)<=nuevoEstudiante.getNombre().charAt(0)&&auxiliar2.getNombre().charAt(0)>=nuevoEstudiante.getNombre().charAt(0))
+            		if(auxiliar.getNombre().charAt(0)>=nuevoEstudiante.getNombre().charAt(0))
+            		{
+            			auxiliar2=auxiliar;
+            			nuevoEstudiante.setSiguiente(auxiliar);
+            			inicio=nuevoEstudiante;
+            			break;
+            		}
+            		else if(auxiliar.getNombre().charAt(0)<=nuevoEstudiante.getNombre().charAt(0)&&auxiliar2.getNombre().charAt(0)>=nuevoEstudiante.getNombre().charAt(0))
             		{
             			nuevoEstudiante.setSiguiente(auxiliar2);
             			auxiliar2=nuevoEstudiante;
             			auxiliar.setSiguiente(auxiliar2);
+            			break;
             		}
             		else
             		{
             			if(auxiliar2.getSiguiente()==null)
             			{
-            				auxiliar.setSiguiente(nuevoEstudiante);
+            				auxiliar2.setSiguiente(nuevoEstudiante);
+            				
             			}
             			else
             			{
             				auxiliar=auxiliar.getSiguiente();
+            				auxiliar2=auxiliar2.getSiguiente();
             			}
             		}
             	
