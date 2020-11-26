@@ -1,11 +1,13 @@
 public class Grupo 
 {
     Estudiante inicio;
+    Estudiante raiz;
     int tamano;
     Grupo()
     {
         inicio = null;
         tamano = 0;
+        raiz = null;
     }
 
     public boolean esVacia()
@@ -26,7 +28,7 @@ public class Grupo
         System.out.println("Agregando notas para "+nuevoEstudiante.getNombre());
         nuevaNota.agregar(nota);
         nuevoEstudiante.setNotas(nuevaNota);
-        nuevoEstudiante.promedio();
+        nuevoEstudiante.promedio(nuevoEstudiante.getNotas());
         if(esVacia())
         {
             inicio=nuevoEstudiante;
@@ -103,5 +105,35 @@ public class Grupo
             
             System.out.println(auxiliar.toString());
         }
+    }
+    private Estudiante agregarArbol(Estudiante actual, Estudiante nuevo)
+    {
+        if(actual == null)
+        {
+            return new Estudiante();
+        }
+        else if( nuevo.getPromedio() < actual.getPromedio())
+        {
+            actual.setHijoIzquierdo(agregarArbol(actual.getHijoIzquierdo(), nuevo));
+        }
+        else if( nuevo.getPromedio() > actual.getPromedio() )
+        {
+            actual.setHijoDerecho(agregarArbol(actual.getHijoDerecho(), nuevo));
+        }
+        else
+        {
+            return actual;
+        }
+        
+        return actual;
+    }
+    public void agregarHijo(Estudiante nuevo)
+    {
+        raiz = agregarArbol(raiz, nuevo);
+    }
+    
+    public Estudiante getRaiz()
+    {
+        return raiz;
     }
 }

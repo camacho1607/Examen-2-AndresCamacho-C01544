@@ -7,6 +7,8 @@ public class Estudiante
     private int promedio;
     private String estudianteString;
     private Estudiante siguiente;
+    Estudiante hijoIzquierdo;
+    Estudiante hijoDerecho;
     int posicion=0;
     Estudiante()
     {
@@ -16,7 +18,7 @@ public class Estudiante
         siguiente=null;
         
     }
-    public void promedio()
+    public void promedio(ListaNotas notas)
     {
     	if(posicion==notas.getTamano())
     	{
@@ -26,7 +28,7 @@ public class Estudiante
         {
             promedio+=notas.buscarPosicion(posicion);
             posicion++;
-            promedio();
+            promedio(notas);
         }
         
     }
@@ -65,4 +67,24 @@ public class Estudiante
     public void setNotas(ListaNotas notas) {
         this.notas = notas;
     }
+    public Estudiante getHijoIzquierdo()
+    {
+        return hijoIzquierdo;
+    }
+
+    public Estudiante getHijoDerecho()
+    {
+        return hijoDerecho;
+    }
+    
+    public void setHijoIzquierdo(Estudiante nuevoEstudiante)
+    {
+        hijoIzquierdo = nuevoEstudiante;
+    }
+
+    public void setHijoDerecho(Estudiante nuevoEstudiante)
+    {
+        hijoDerecho = nuevoEstudiante;
+    }
+    
 }
